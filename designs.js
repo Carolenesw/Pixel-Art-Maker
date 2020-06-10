@@ -3,10 +3,14 @@
 const sizeInput = document.getElementById("sizePicker");
 let inputWEl = ""; 
 let inputHEl = "";
+
 // Select color input
 const inputCol = document.getElementById("colorPicker");
 const pixelCon = document.getElementById("pixelCanvas");
 
+// create table row to append to pixel Convas 
+const tableRows = document.createElement("tr");
+// const trId = document.createElement("")
 
 // When size is submitted by the user, call makeGrid()
 sizeInput.addEventListener("submit", function() {
@@ -26,9 +30,12 @@ console.log("Height: " + inputHEl + " and Width: " + inputWEl)
 
 
 function makeGrid(height, width) {
-const tableRows = document.getElementsByTagName("tr").style.display = "none"
+// prevent duplications when page is refresh 
+tableRows.style.display = "none"
 
-for (var i = 1; i <= )
+for (var i = 1; i <= height; i++) {
+    pixelCon.append(tableRows)
+}
 // Your code goes here!
 
 }
