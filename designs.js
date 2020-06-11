@@ -6,10 +6,11 @@ let inputHEl = "";
 
 // Select color input
 const inputCol = document.getElementById("colorPicker");
-const pixelCon = document.getElementById("pixelCanvas");
+const pixelCan = document.getElementById("pixelCanvas");
 
 // create table row to append to pixel Convas 
 const tableRows = document.createElement("tr");
+
 // const trId = document.createElement("")
 
 // When size is submitted by the user, call makeGrid()
@@ -34,7 +35,9 @@ function makeGrid(height, width) {
 tableRows.style.display = "none"
 
 for (var i = 1; i <= height; i++) {
-    pixelCon.append(tableRows)
+    // create id for each increment for the table row
+    pixelCan.append(tableRows.setAttribute("id", "trTable")+ i)
+   console.log(tableRows)
 }
 // Your code goes here!
 
