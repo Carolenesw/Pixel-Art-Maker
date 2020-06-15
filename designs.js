@@ -2,6 +2,7 @@
 const sizeInput = document.getElementById("sizePicker");
 let inputWEl = "";
 let inputHEl = "";
+// let cell = "";
 
 // Select color input
 let inputCol = "";
@@ -20,7 +21,7 @@ sizeInput.addEventListener("submit", function () {
     // add click events with values
     inputHEl = document.getElementById("inputHeight").value;
     inputWEl = document.getElementById("inputWidth").value;
-    inputCol = document.getElementById("colorPicker").value;
+    
 
     makeGrid(inputHEl, inputWEl)
 
@@ -41,8 +42,20 @@ function makeGrid(height, width) {
 
         // add data for each row/cell based on width
         for (let j = 0; j <= width; j++) {
-            let cell = tableRows.insertCell(0)
+           let cell = tableRows.insertCell(j)
+
+              // add color to cell 
+         cell.addEventListener("click", function () {
+            event.preventDefault()
+            inputCol = document.getElementById("colorPicker").value;
+            // add background color
+            cell.style.backgroundColor = inputCol
+            console.log(inputCol)
+        })
+       console.log(cell)
+
         }
+       
     }
     // create id for each increment for the table row
     // pixelCan.append(tableRows.setAttribute("id", "trTable" + i) + i)
@@ -63,9 +76,10 @@ function makeGrid(height, width) {
     //     console.log(x)
     //     // console.log(trID)
     // }
-    console.log(tableRows + i)
+    // console.log(tableRows + i)
     console.log(pixelCan)
     console.log(i)
+   
 }
 // Your code goes here!
 
