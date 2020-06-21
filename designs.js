@@ -1,26 +1,26 @@
 // Select size input
-const sizeInput = document.getElementById("sizePicker");
-let inputWEl = "";
-let inputHEl = "";
+const sizePicker = document.getElementById("sizePicker");
+let inputWidth = "";
+let inputHeight = "";
 
 // Select color input
-let inputCol = "";
-const pixelCan = document.getElementById("pixelCanvas");
+let colorPicker = "";
+const pixelCanvas = document.getElementById("pixelCanvas");
 
 // create table row and data to append to pixel Convas 
 let tableRows = document.createElement("tr");
 const tData = document.createElement("td");
 
 // When size is submitted by the user, call makeGrid()
-sizeInput.addEventListener("submit", function () {
+sizePicker.addEventListener("submit", function () {
 
     event.preventDefault()
 
     // add click events with values
-    inputHEl = document.getElementById("inputHeight").value;
-    inputWEl = document.getElementById("inputWidth").value;
+    inputHeight = document.getElementById("inputHeight").value;
+    inputWidth = document.getElementById("inputWidth").value;
    
-    makeGrid(inputHEl, inputWEl);
+    makeGrid(inputHeight, inputWidth);
 
 })
 
@@ -29,7 +29,7 @@ sizeInput.addEventListener("submit", function () {
 function makeGrid(height, width) {
     // loop for each row based on height
     for (var i = 0; i <= height; i++) {
-        tableRows = pixelCan.insertRow(i);
+        tableRows = pixelCanvas.insertRow(i);
         
         // add data for each row/cell based on width
         for (let j = 0; j <= width; j++) {
@@ -39,9 +39,9 @@ function makeGrid(height, width) {
             cell.addEventListener("click", function () {
                 event.preventDefault()
 
-                inputCol = document.getElementById("colorPicker").value;
+                colorPicker = document.getElementById("colorPicker").value;
                 // add background color
-                cell.style.backgroundColor = inputCol;
+                cell.style.backgroundColor = colorPicker;
                
             });
   // delete first row/child cell/index 0 when loops runs 
