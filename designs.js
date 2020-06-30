@@ -7,9 +7,7 @@ let inputHeightElement = "";
 let colorPicker = "";
 const pixelCanvas = document.getElementById("pixelCanvas");
 
-// create table row and data to append to pixel Convas 
-let tableRows = document.createElement("tr");
-const tData = document.createElement("td");
+// const tData = document.createElement("td");
 
 // When size is submitted by the user, call makeGrid()
 sizePicker.addEventListener("submit", function () {
@@ -24,13 +22,19 @@ sizePicker.addEventListener("submit", function () {
 
 });
 
+
 //validation code to see State field is mandatory.  
 function makeGrid(height, width) {
+    // use innerHTML to remove any existing table cells 
+    pixelCanvas.innerHTML = "";
+    
+// create table row and data to append to pixel Convas 
+let tableRows = document.createElement("tr");
 
     // loop for each row based on height
     for (let i = 0; i < height; i++) {
         tableRows = pixelCanvas.insertRow(i);
-console.log(tableRows)
+
         // add data for each row/cell based on width
         for (let j = 0; j < width; j++) {
             let cell = tableRows.insertCell(j);
@@ -43,7 +47,11 @@ console.log(tableRows)
                 // add background color
                 cell.style.backgroundColor = colorPicker;
 
-
+                
+                // if (colorPicker === tableRows) {
+                //     // Your code here
+                //     pixelCanvas.firstChild(tableRows);
+                // }
             });
 
         };
@@ -53,5 +61,11 @@ console.log(tableRows)
 };
 
 
+// pixelCanvas.addEventListener('click', function(event) {
+//     if (event.target.nodeName === tableRows) {
+//         // Your code here
+//         pixelCanvas.firstChild(tableRows);
+//     }
+// });
 
 
